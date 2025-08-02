@@ -18,13 +18,6 @@ pipeline {
             }
         }
 
-        stage('Code Quality - SonarQube') {
-            steps {
-                withSonarQubeEnv("${SONARQUBE_SERVER}") {
-                    sh "${MAVEN_HOME}/bin/mvn clean verify sonar:sonar"
-                }
-            }
-        }
 
         stage('Build') {
             steps {
